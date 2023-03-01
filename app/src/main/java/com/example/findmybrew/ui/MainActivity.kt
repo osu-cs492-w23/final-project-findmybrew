@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
         val beerButton : Button = findViewById(R.id.beerButton)
 
         breweryButton.setOnClickListener(){
-            val intent = Intent(this, brewerySearch::class.java )
+            val intent = Intent(this, BrewerySearch::class.java )
             startActivity(intent)
         }
 
         beerButton.setOnClickListener(){
-            val intent = Intent(this, beerSearch::class.java)
+            val intent = Intent(this, BeerSearch::class.java)
             startActivity(intent)
         }
     }
