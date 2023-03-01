@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        beerButton.setOnClickListener(){
+        /*beerButton.setOnClickListener(){
             val intent = Intent(this, beerSearch::class.java)
             startActivity(intent)
-        }
+        }*/
     }
 }
