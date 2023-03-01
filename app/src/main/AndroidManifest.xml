@@ -12,6 +12,12 @@
         android:theme="@style/Theme.FindMyBrew"
         tools:targetApi="31">
         <activity
+            android:name=".beerSearch"
+            android:exported="false" />
+        <activity
+            android:name=".brewerySearch"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
