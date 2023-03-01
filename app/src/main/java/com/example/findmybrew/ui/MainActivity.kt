@@ -1,7 +1,8 @@
-package com.example.findmybrew
+package com.example.findmybrew.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.findmybrew.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
