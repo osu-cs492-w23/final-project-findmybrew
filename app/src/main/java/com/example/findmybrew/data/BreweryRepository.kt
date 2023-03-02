@@ -14,11 +14,7 @@ class BreweryRepository (
     suspend fun loadBrewerySearchResults(
         search: String?
     ) : Result<List<SingleBrewery>?> {
-        /*
-         * If we have a cached forecast for the same location and units, return the cached forecast
-         * without making a network call.  Otherwise, make an API call to fetch the forecast and
-         * cache it.
-         */
+
         return if (cachedBreweries!= null) {
             Result.success(cachedBreweries!!)
         } else {
