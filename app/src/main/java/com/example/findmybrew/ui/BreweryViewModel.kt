@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 class BreweryViewModel: ViewModel() {
     private val repository = BreweryRepository(BrewerySearchService.create())
 
-    private val _forecast = MutableLiveData<List<SingleBrewery>?>(null)
-    val forecast: LiveData<List<SingleBrewery>?> = _forecast
+    private val _brewery = MutableLiveData<List<SingleBrewery>?>(null)
+    val brewery: LiveData<List<SingleBrewery>?> = _brewery
 
     private val _error = MutableLiveData<Throwable?>(null)
     val error: LiveData<Throwable?> = _error
@@ -21,17 +21,13 @@ class BreweryViewModel: ViewModel() {
     private val _loading = MutableLiveData<Boolean>(false)
     val loading: LiveData<Boolean> = _loading
 
-    fun loadFiveDayForecast(search: String?) {
-        /*
-         * Launch a new coroutine in which to execute the API call.  The coroutine is tied to the
-         * lifecycle of this ViewModel by using `viewModelScope`.
-         */
+    fun loadBrewerySearch(search: String?) {
         viewModelScope.launch {
             _loading.value = true
             val result = repository.loadBrewerySearchResults(search)
             _loading.value = false
             _error.value = result.exceptionOrNull()
-            _forecast.value = result.getOrNull()
+            _brewery.value = result.getOrNull()
         }
     }
 }

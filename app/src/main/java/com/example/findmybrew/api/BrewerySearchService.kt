@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface BrewerySearchService {
     @GET("search")
     suspend fun loadBrewerySearchResults(
-        @Query("query") search: String? = "Block"
+        @Query("query") search: String?
     ) : Response<List<SingleBrewery>>
 
     companion object {

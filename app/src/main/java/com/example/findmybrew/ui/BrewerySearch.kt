@@ -32,7 +32,7 @@ class BrewerySearch : AppCompatActivity() {
         breweryListRV.setHasFixedSize(true)
         breweryListRV.adapter = breweryAdapter
 
-        viewModel.forecast.observe(this) { brewery ->
+        viewModel.brewery.observe(this) { brewery ->
             if (brewery != null) {
                 breweryAdapter.updateBrewery(brewery)
                 breweryListRV.visibility = View.VISIBLE
@@ -40,10 +40,6 @@ class BrewerySearch : AppCompatActivity() {
             }
         }
 
-        /*
-         * Set up an observer on the error associated with the current API call.  If the error is
-         * not null, display the error that occurred in the UI.
-         */
         viewModel.error.observe(this) { error ->
             if (error != null) {
                 loadingErrorTV.text = getString(R.string.loading_error, error.message)
@@ -52,10 +48,6 @@ class BrewerySearch : AppCompatActivity() {
             }
         }
 
-        /*
-         * Set up an observer on the loading status of the API query.  Display the correct UI
-         * elements based on the current loading status.
-         */
         viewModel.loading.observe(this) { loading ->
             if (loading) {
                 loadingIndicator.visibility = View.VISIBLE
@@ -65,6 +57,8 @@ class BrewerySearch : AppCompatActivity() {
                 loadingIndicator.visibility = View.INVISIBLE
             }
         }
+
+    viewModel.loadBrewerySearch("Block")
     }
 
     private fun onBreweryItemClick(brewery: SingleBrewery) {

@@ -7,4 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.BreweryDetail">
 
+    <TextView
+        android:id="@+id/tv_brewery_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
