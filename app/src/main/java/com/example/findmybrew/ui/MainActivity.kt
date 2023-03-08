@@ -14,12 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val videoview = findViewById<View>(R.id.bg_video) as VideoView
-        val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + com.example.findmybrew.R.raw.beervideo)
-        videoview.setVideoURI(uri)
-        videoview.start()
-        videoview.setOnPreparedListener { it.isLooping = true }
-
         val breweryButton : Button = findViewById(R.id.breweryButton)
         val beerButton : Button = findViewById(R.id.beerButton)
 
@@ -32,5 +26,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, BeerSearch::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val videoview = findViewById<View>(R.id.bg_video) as VideoView
+        val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + com.example.findmybrew.R.raw.beerpouring)
+        videoview.setVideoURI(uri)
+        videoview.start()
+        videoview.setOnPreparedListener { it.isLooping = true }
     }
 }
