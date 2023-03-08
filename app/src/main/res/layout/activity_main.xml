@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@id/logo"
+        android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -20,23 +20,30 @@
     <Button
         android:id="@+id/breweryButton"
         style="?attr/materialButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="185dp"
+        android:layout_height="100dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
         android:text="Search for Brewery"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/beerButton"
         style="?attr/materialButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="185dp"
+        android:layout_height="100dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
         android:text="Search for Beer"
-        app:layout_constraintTop_toBottomOf="@+id/breweryButton"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/breweryButton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="690dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
