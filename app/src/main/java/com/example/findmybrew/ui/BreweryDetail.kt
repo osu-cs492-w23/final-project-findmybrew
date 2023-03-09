@@ -24,7 +24,7 @@ class BreweryDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brewery_detail)
 
-        photoOfBeersRV = findViewById(R.id.rv_beer_list)
+        photoOfBeersRV = findViewById(R.id.rv_brewery_list)
         photoOfBeersRV.layoutManager = LinearLayoutManager(this)
         photoOfBeersRV.setHasFixedSize(true)
         photoOfBeersRV.adapter = beerAdapter
@@ -38,11 +38,12 @@ class BreweryDetail : AppCompatActivity() {
             viewModel.beer.observe(this) {
                 beerAdapter.updateBeer(it)
 
-            findViewById<TextView>(R.id.tv_brewery_street).text = brewery!!.street
-            findViewById<TextView>(R.id.tv_brewery_city).text = brewery!!.city
-            findViewById<TextView>(R.id.tv_brewery_state).text = brewery!!.state
-            findViewById<TextView>(R.id.tv_brewery_postal).text = brewery!!.postal_code
-            findViewById<TextView>(R.id.tv_brewery_url).text = brewery!!.website_url
+                findViewById<TextView>(R.id.tv_brewery_street).text = brewery!!.street
+                findViewById<TextView>(R.id.tv_brewery_city).text = brewery!!.city
+                findViewById<TextView>(R.id.tv_brewery_state).text = brewery!!.state
+                findViewById<TextView>(R.id.tv_brewery_postal).text = brewery!!.postal_code
+                findViewById<TextView>(R.id.tv_brewery_url).text = brewery!!.website_url
+            }
         }
     }
 }
