@@ -21,10 +21,17 @@ class BreweryDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brewery_detail)
 
+
+        photoOfBeersRV = findViewById(R.id.rv_brewery_list)
+        photoOfBeersRV.layoutManager = LinearLayoutManager(this)
+        photoOfBeersRV.setHasFixedSize(true)
+        photoOfBeersRV.adapter = beerAdapter
+
         if (intent != null && intent.hasExtra(EXTRA_SINGLE_BREWERY)) {
             brewery = intent.getSerializableExtra(EXTRA_SINGLE_BREWERY) as SingleBrewery
 
             findViewById<TextView>(R.id.tv_brewery_name).text = brewery!!.name
+
 
             findViewById<TextView>(R.id.tv_brewery_street).text = brewery!!.street
             findViewById<TextView>(R.id.tv_brewery_city).text = brewery!!.city
@@ -34,7 +41,7 @@ class BreweryDetail : AppCompatActivity() {
 
 
             viewModel.beer.observe(this) {
-                
+                beerAdapter.updateBeer(it)
             }
         }
     }

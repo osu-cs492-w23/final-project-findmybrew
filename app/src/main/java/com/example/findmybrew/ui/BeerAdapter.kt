@@ -28,6 +28,10 @@ class BeerAdapter() : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
         holder.bind(this.beers[position])
     }
 
+    fun updateBeer(it: List<PhotoOfBeer>?) {
+
+    }
+
     class ViewHolder(itemView: View)
         : RecyclerView.ViewHolder(itemView) {
         private val nameTV: TextView = itemView.findViewById(R.id.tv_beer_name)
