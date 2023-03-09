@@ -18,7 +18,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/tv_brewery_location"
             app:layout_constraintLeft_toRightOf="@+id/tv_brewery_location"
-            android:text="Name!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
             android:textSize="25dp" />
         <TextView
             android:id="@+id/tv_brewery_location"
@@ -27,8 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_brewery_name"
-            android:layout_marginBottom="-3dp"
-            android:text="Corvallis, OR" />
+            android:layout_marginBottom="-3dp"/>
     
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

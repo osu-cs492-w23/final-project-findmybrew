@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.findmybrew.R
@@ -16,6 +17,7 @@ class BreweryDetail : AppCompatActivity() {
 
     private var brewery: SingleBrewery? = null
     private val viewModel: PhotosOfBeersViewModel by viewModels()
+    private var beerAdapter = BeerAdapter()
     private lateinit var photoOfBeersRV: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

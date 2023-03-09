@@ -32,6 +32,7 @@ class BreweryAdapter(private val onClick: (SingleBrewery) -> Unit) : RecyclerVie
     class ViewHolder(itemView: View, val onClick: (SingleBrewery) -> Unit)
         : RecyclerView.ViewHolder(itemView) {
         private val nameTV: TextView = itemView.findViewById(R.id.tv_brewery_name)
+        private val cityTV: TextView = itemView.findViewById(R.id.tv_brewery_location)
 
         private val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(itemView.context)
 
@@ -49,8 +50,8 @@ class BreweryAdapter(private val onClick: (SingleBrewery) -> Unit) : RecyclerVie
 
         fun bind(brewery: SingleBrewery) {
             currentBrewery = brewery
-
             nameTV.text = currentBrewery.name
+            cityTV.text = currentBrewery.city + ", " + currentBrewery.state
         }
     }
 }
