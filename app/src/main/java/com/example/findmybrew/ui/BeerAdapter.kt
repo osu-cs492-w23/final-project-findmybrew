@@ -11,7 +11,7 @@ import com.example.findmybrew.data.PhotoOfBeer
 class BeerAdapter() : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
     var beers: List<PhotoOfBeer> = listOf()
 
-    fun updateBeer(beer: List<PhotoOfBeer>?) {
+    fun updateBrewery(beer: List<PhotoOfBeer>?) {
         beers = beer ?: listOf()
         notifyDataSetChanged()
     }
