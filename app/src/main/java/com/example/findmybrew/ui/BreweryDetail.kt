@@ -26,8 +26,15 @@ class BreweryDetail : AppCompatActivity() {
 
             findViewById<TextView>(R.id.tv_brewery_name).text = brewery!!.name
 
-            viewModel.beer.observe(this) {
+            findViewById<TextView>(R.id.tv_brewery_street).text = brewery!!.street
+            findViewById<TextView>(R.id.tv_brewery_city).text = brewery!!.city
+            findViewById<TextView>(R.id.tv_brewery_state).text = brewery!!.state
+            findViewById<TextView>(R.id.tv_brewery_postal).text = brewery!!.postal_code
+            findViewById<TextView>(R.id.tv_brewery_url).text = brewery!!.website_url
 
+
+            viewModel.beer.observe(this) {
+                
             }
         }
     }

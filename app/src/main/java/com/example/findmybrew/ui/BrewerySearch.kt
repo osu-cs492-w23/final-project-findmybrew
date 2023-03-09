@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findmybrew.R
@@ -51,7 +50,7 @@ class BrewerySearch : AppCompatActivity() {
             if (error != null) {
                 loadingErrorTV.text = getString(R.string.loading_error, error.message)
                 loadingErrorTV.visibility = View.VISIBLE
-                Log.e("BrewerySearch", "Error fetching forecast: ${error.message}")
+                Log.e("BrewerySearch", "Error fetching brewery data: ${error.message}")
             }
         }
 
