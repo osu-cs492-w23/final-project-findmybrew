@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FindMyBrew</string>
 
-    <string name="loading_error">Unable to fetch forecast data.  Error message: %1$s</string>
+    <string name="loading_error">Unable to fetch brewery data. Error message: %1$s</string>
 
     <string name="search_hint">Enter a brewery...</string>
     <string name="search">Search</string>

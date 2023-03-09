@@ -14,7 +14,7 @@
         android:theme="@style/Theme.FindMyBrew"
         tools:targetApi="31">
         <activity
-            android:name=".ui.BeerSearch"
+            android:name=".ui.FavoriteBreweries"
             android:exported="false"
             android:parentActivityName=".ui.MainActivity" />
         <activity

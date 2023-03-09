@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         beerButton.setOnClickListener(){
-            val intent = Intent(this, BeerSearch::class.java)
+            val intent = Intent(this, FavoriteBreweries::class.java)
             startActivity(intent)
         }
     }
