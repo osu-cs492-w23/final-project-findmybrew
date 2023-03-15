@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
 
         val breweryButton : Button = findViewById(R.id.breweryButton)
         val beerButton : Button = findViewById(R.id.beerButton)
