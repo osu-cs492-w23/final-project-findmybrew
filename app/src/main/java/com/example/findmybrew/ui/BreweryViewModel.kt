@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.findmybrew.api.BrewerySearchService
 import com.example.findmybrew.data.BreweryRepository
+import com.example.findmybrew.data.LoadingStatus
 import com.example.findmybrew.data.SingleBrewery
 import kotlinx.coroutines.launch
 
@@ -18,16 +19,19 @@ class BreweryViewModel: ViewModel() {
     private val _error = MutableLiveData<Throwable?>(null)
     val error: LiveData<Throwable?> = _error
 
-    private val _loading = MutableLiveData<Boolean>(false)
-    val loading: LiveData<Boolean> = _loading
+    private val _loading = MutableLiveData<LoadingStatus>(LoadingStatus.SUCCESS)
+    val loading: LiveData<LoadingStatus> = _loading
 
-    fun loadBrewerySearch(search: String?) {
+    fun loadBrewerySearch(search: String) {
         viewModelScope.launch {
-            _loading.value = true
+            _loading.value = LoadingStatus.LOADING
             val result = repository.loadBrewerySearchResults(search)
-            _loading.value = false
-            _error.value = result.exceptionOrNull()
+            _loading.value = when (result.isSuccess) {
+                true -> LoadingStatus.SUCCESS
+                false -> LoadingStatus.ERROR
+            }
             _brewery.value = result.getOrNull()
+            _error.value = result.exceptionOrNull()
         }
     }
 }

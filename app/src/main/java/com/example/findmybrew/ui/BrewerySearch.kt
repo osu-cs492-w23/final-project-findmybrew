@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findmybrew.R
+import com.example.findmybrew.data.LoadingStatus
 import com.example.findmybrew.data.SingleBrewery
 import com.google.android.material.progressindicator.CircularProgressIndicator
 
@@ -23,8 +24,6 @@ class BrewerySearch : AppCompatActivity() {
     private lateinit var breweryListRV: RecyclerView
     private lateinit var loadingErrorTV: TextView
     private lateinit var loadingIndicator: CircularProgressIndicator
-
-    private var searchQuery: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brewery_search)
@@ -53,17 +52,27 @@ class BrewerySearch : AppCompatActivity() {
         }
 
         viewModel.loading.observe(this) { loading ->
-            if (loading) {
-                loadingIndicator.visibility = View.VISIBLE
-                loadingErrorTV.visibility = View.INVISIBLE
-                breweryListRV.visibility = View.INVISIBLE
-            } else {
-                loadingIndicator.visibility = View.INVISIBLE
+            when (loading) {
+                LoadingStatus.LOADING -> {
+                    loadingIndicator.visibility = View.VISIBLE
+                    breweryListRV.visibility = View.INVISIBLE
+                    loadingErrorTV.visibility = View.INVISIBLE
+                }
+                LoadingStatus.ERROR -> {
+                    loadingIndicator.visibility = View.INVISIBLE
+                    breweryListRV.visibility = View.INVISIBLE
+                    loadingErrorTV.visibility = View.VISIBLE
+                }
+                else -> {
+                    loadingIndicator.visibility = View.INVISIBLE
+                    breweryListRV.visibility = View.VISIBLE
+                    loadingErrorTV.visibility = View.INVISIBLE
+                }
             }
         }
 
         searchBtn.setOnClickListener {
-            searchQuery = searchBoxET.text.toString()
+            val searchQuery = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(searchQuery)) {
                 viewModel.loadBrewerySearch(searchQuery)
                 breweryListRV.scrollToPosition(0)
@@ -73,12 +82,6 @@ class BrewerySearch : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-//        if(searchQuery != null)
-//        {
-//            viewModel.loadBrewerySearch(searchQuery!!)
-//            breweryListRV.scrollToPosition(0)
-//        }
     }
 
     private fun onBreweryItemClick(brewery: SingleBrewery) {
