@@ -23,6 +23,8 @@ class BrewerySearch : AppCompatActivity() {
     private lateinit var breweryListRV: RecyclerView
     private lateinit var loadingErrorTV: TextView
     private lateinit var loadingIndicator: CircularProgressIndicator
+
+    private var searchQuery: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brewery_search)
@@ -39,11 +41,7 @@ class BrewerySearch : AppCompatActivity() {
         breweryListRV.adapter = breweryAdapter
 
         viewModel.brewery.observe(this) { brewery ->
-            if (brewery != null) {
-                breweryAdapter.updateBrewery(brewery)
-                breweryListRV.visibility = View.VISIBLE
-                breweryListRV.scrollToPosition(0)
-            }
+            breweryAdapter.updateBrewery(brewery)
         }
 
         viewModel.error.observe(this) { error ->
@@ -64,18 +62,8 @@ class BrewerySearch : AppCompatActivity() {
             }
         }
 
-        // Observer for the brewery results
-        viewModel.brewery.observe(this) { searchResults ->
-            breweryAdapter.updateBrewery(searchResults)
-        }
-
-        /*
-         * Attach click listener to "search" button to perform repository search with GitHub API
-         * using the search query entered by the user.  Also use the values of the appropriate
-         * settings to influence the API call.
-        */
         searchBtn.setOnClickListener {
-            val searchQuery = searchBoxET.text.toString()
+            searchQuery = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(searchQuery)) {
                 viewModel.loadBrewerySearch(searchQuery)
                 breweryListRV.scrollToPosition(0)
@@ -86,8 +74,11 @@ class BrewerySearch : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        // Hard-coded API call
-        //viewModel.loadBrewerySearch("Block")
+//        if(searchQuery != null)
+//        {
+//            viewModel.loadBrewerySearch(searchQuery!!)
+//            breweryListRV.scrollToPosition(0)
+//        }
     }
 
     private fun onBreweryItemClick(brewery: SingleBrewery) {

@@ -34,8 +34,6 @@ class BreweryAdapter(private val onClick: (SingleBrewery) -> Unit) : RecyclerVie
         private val nameTV: TextView = itemView.findViewById(R.id.tv_brewery_name)
         private val cityTV: TextView = itemView.findViewById(R.id.tv_brewery_location)
 
-        private val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(itemView.context)
-
         private lateinit var currentBrewery: SingleBrewery
 
         /*
