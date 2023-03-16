@@ -113,14 +113,5 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="160dp" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_beer_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

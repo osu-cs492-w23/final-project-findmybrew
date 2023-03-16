@@ -1,19 +1,19 @@
 package com.example.findmybrew.data
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BreweryDao {
-    @Insert
-    suspend fun insert(beer: PhotoOfBeer)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(brewery: SingleBrewery)
 
     @Delete
-    suspend fun delete(beer: PhotoOfBeer)
+    suspend fun delete(brewery: SingleBrewery)
 
-    @Query("SELECT * FROM PhotoOfBeer")
-    fun getAllBeers(): Flow<List<PhotoOfBeer>>
+    @Query("SELECT * FROM SingleBrewery")
+    fun getAllBreweries(): Flow<List<SingleBrewery>>
+
+    @Query("SELECT * FROM SingleBrewery WHERE id = :id LIMIT 1")
+    fun getBreweryByName(id: String): Flow<SingleBrewery?>
 }

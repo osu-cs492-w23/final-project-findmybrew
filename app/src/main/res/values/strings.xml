@@ -3,6 +3,8 @@
 
     <string name="loading_error">Unable to fetch brewery data. Error message: %1$s</string>
 
+    <string name="action_bookmark">Bookmark this brewery</string>
+
     <string name="search_hint">Enter a brewery...</string>
     <string name="search">Search</string>
 
