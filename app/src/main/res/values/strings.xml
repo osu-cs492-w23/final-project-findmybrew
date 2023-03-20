@@ -4,8 +4,13 @@
     <string name="loading_error">Unable to fetch brewery data. Error message: %1$s</string>
 
     <string name="action_bookmark">Bookmark this brewery</string>
+    <string name="action_map_title">View brewery location in map</string>
 
     <string name="search_hint">Enter a brewery...</string>
     <string name="search">Search</string>
+
+    <string name="geo_uri">geo:%1$f,%2$f?z=%3$d</string>
+
+    <string name="action_map_error">No app was found to map the brewery location.  Please install a maps app on your device and try again.</string>
 
 </resources>
