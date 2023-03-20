@@ -1,5 +1,9 @@
 package com.example.findmybrew.ui
 
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findmybrew.R
 import com.example.findmybrew.data.SingleBrewery
+import com.google.android.material.snackbar.Snackbar
 
 const val EXTRA_SINGLE_BREWERY = "com.example.android.findmybrew.SINGLE_BREWERY"
 
@@ -71,6 +76,10 @@ class BreweryDetail : AppCompatActivity() {
                 toggleRepoBookmark(item)
                 true
             }
+            R.id.action_map -> {
+                viewForecastCityOnMap()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -79,6 +88,25 @@ class BreweryDetail : AppCompatActivity() {
         when (isBookmarked) {
             false -> viewModel.addBrewery(brewery!!)
             true ->  viewModel.removeBrewery(brewery!!)
+        }
+    }
+
+    private fun viewForecastCityOnMap() {
+        val geoUri = Uri.parse(getString(
+            R.string.geo_uri,
+            brewery!!.lat!!.toDouble() ?: 0.0,
+            brewery!!.lon!!.toDouble() ?: 0.0,
+            20
+        ))
+        val intent = Intent(Intent.ACTION_VIEW, geoUri)
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Snackbar.make(
+                findViewById(R.id.constraint_layout),
+                R.string.action_map_error,
+                Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 }
