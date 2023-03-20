@@ -11,7 +11,6 @@
         android:id="@+id/tv_brewery_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NAME"
         android:textAlignment="center"
         android:textAppearance="?attr/textAppearanceHeadline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,49 +18,43 @@
 
     <TextView
         android:id="@+id/tv_brewery_street"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="3dp"
-        android:text="street"
         android:textAlignment="center"
         android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_name"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tv_brewery_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="3dp"
-        android:text="city"
         android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:layout_constraintStart_toEndOf="@+id/tv_brewery_street"
-        app:layout_constraintTop_toBottomOf="@+id/guideline5" />
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
 
     <TextView
         android:id="@+id/tv_brewery_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="3dp"
-        android:text="state"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/tv_brewery_city"
-        app:layout_constraintTop_toBottomOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
 
     <TextView
         android:id="@+id/tv_brewery_postal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="postal"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/tv_brewery_state"
-        app:layout_constraintTop_toBottomOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
 
     <TextView
         android:id="@+id/tv_brewery_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phone"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/barrier1" />
 
@@ -69,23 +62,15 @@
         android:id="@+id/tv_brewery_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="URL"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/tv_brewery_phone" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_brewery_street, tv_brewery_city, tv_brewery_state, tv_brewery_postal" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:constraint_referenced_ids="tv_brewery_city, tv_brewery_state, tv_brewery_postal" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -97,13 +82,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/guideline3" >
+        app:layout_constraintTop_toBottomOf="@+id/guideline3">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_brewery_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
@@ -113,6 +98,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="160dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="100dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
