@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:paddingRight="3dp"
+        android:paddingEnd="3dp"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:paddingRight="3dp"
+        android:paddingEnd="3dp"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/tv_brewery_city"
         app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
@@ -86,26 +86,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="80dp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_url">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_brewery_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
-
-    </FrameLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="95dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
