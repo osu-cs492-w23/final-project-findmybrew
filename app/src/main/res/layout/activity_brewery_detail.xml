@@ -11,7 +11,9 @@
         android:id="@+id/tv_brewery_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textAppearance="?attr/textAppearanceHeadline2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,15 +22,16 @@
         android:id="@+id/tv_brewery_street"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_name"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_name" />
 
     <TextView
         android:id="@+id/tv_brewery_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:paddingRight="3dp"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/guideline2"
@@ -38,6 +41,7 @@
         android:id="@+id/tv_brewery_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:paddingRight="3dp"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/tv_brewery_city"
@@ -47,6 +51,7 @@
         android:id="@+id/tv_brewery_postal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toEndOf="@+id/tv_brewery_state"
         app:layout_constraintTop_toBottomOf="@+id/tv_brewery_street" />
@@ -55,6 +60,7 @@
         android:id="@+id/tv_brewery_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/barrier1" />
 
@@ -62,6 +68,7 @@
         android:id="@+id/tv_brewery_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:textAlignment="center"
         android:autoLink="web"
         app:layout_constraintTop_toBottomOf="@+id/tv_brewery_phone" />
@@ -83,7 +90,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/guideline3">
+        app:layout_constraintTop_toBottomOf="@+id/tv_brewery_url">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_brewery_list"
@@ -94,11 +101,11 @@
     </FrameLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="160dp" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="95dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
