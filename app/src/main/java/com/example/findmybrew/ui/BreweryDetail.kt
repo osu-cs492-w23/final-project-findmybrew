@@ -29,6 +29,12 @@ class BreweryDetail : AppCompatActivity() {
             brewery = intent.getSerializableExtra(EXTRA_SINGLE_BREWERY) as SingleBrewery
 
             findViewById<TextView>(R.id.tv_brewery_name).text = brewery!!.name
+            findViewById<TextView>(R.id.tv_brewery_street).text = brewery!!.street
+            findViewById<TextView>(R.id.tv_brewery_city).text = brewery!!.city + ","
+            findViewById<TextView>(R.id.tv_brewery_state).text = brewery!!.state + ","
+            findViewById<TextView>(R.id.tv_brewery_postal).text = brewery!!.postal_code
+            findViewById<TextView>(R.id.tv_brewery_phone).text = brewery!!.phone
+            findViewById<TextView>(R.id.tv_brewery_url).text = brewery!!.website_url
         }
     }
 
